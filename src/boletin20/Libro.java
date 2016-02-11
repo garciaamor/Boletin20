@@ -1,6 +1,6 @@
 package boletin20;
 
-public class Libro {
+public class Libro implements Comparable<Libro>{
    
     String titulo;
     String autor;
@@ -63,7 +63,19 @@ public class Libro {
     public String toString() {
         return "Libro{" + "titulo=" + titulo + ", autor=" + autor + ", ISBN=" + ISBN + ", prezo=" + prezo + ", unidades=" + unidades + '}';
     }
+
+    @Override
+    public int compareTo(Libro o) {
+        if(titulo.compareToIgnoreCase(o.titulo)<0){
+            return -1;         
+        }
+    else if(titulo.compareToIgnoreCase(o.titulo)>0){
+            return 1;
+        }
+    else{
+            return 0;
+    }
     
     
-           
+    }       
 }
